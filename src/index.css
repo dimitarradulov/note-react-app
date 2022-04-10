@@ -19,3 +19,21 @@ body {
   background-color: #e5a472;
   color: #111113;
 }
+
+.btn {
+  font-family: inherit;
+  display: inline-block;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #42619f;
+  color: #fbffff;
+  font-weight: 700;
+  font-size: clamp(1.8rem, 5vw, 2rem);
+  padding-block: 0.5em;
+  cursor: pointer;
+  transition: 0.2s all;
+}
+
+.btn:hover {
+  background-color: #385287;
+}
