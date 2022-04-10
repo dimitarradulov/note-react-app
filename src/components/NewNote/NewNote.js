@@ -4,7 +4,7 @@ import './NewNote.css';
 import Wrapper from '../UI/Wrapper';
 import NewNoteForm from './NewNoteForm';
 
-const NewNote = () => {
+const NewNote = (props) => {
   const [isAddingNote, setIsAddingNote] = useState(false);
 
   const btnHandler = function () {
@@ -32,7 +32,10 @@ const NewNote = () => {
   if (isAddingNote) {
     jsxContent = (
       <Wrapper>
-        <NewNoteForm onCancelForm={btnHandler.bind(false)} />
+        <NewNoteForm
+          onCancelForm={btnHandler.bind(false)}
+          onSaveNoteData={props.onSaveNoteData}
+        />
       </Wrapper>
     );
   }
