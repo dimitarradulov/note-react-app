@@ -1,0 +1,10 @@
+.no-notes {
+  display: grid;
+  place-items: center;
+}
+
+.no-notes__heading {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
