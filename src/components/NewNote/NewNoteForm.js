@@ -1,18 +1,52 @@
+import { useState } from 'react';
+import uniqid from 'uniqid';
+
 import './NewNoteForm.css';
 
 const NewNoteForm = (props) => {
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
+
+  const titleHandler = (e) => {
+    setTitle(e.target.value);
+  };
+
+  const contentHandler = (e) => {
+    setContent(e.target.value);
+  };
+
+  const formSubmitHandler = (e) => {
+    e.preventDefault();
+
+    const noteData = {
+      id: uniqid(),
+      title,
+      content,
+      date: new Date(),
+    };
+
+    props.onSaveNoteData(noteData);
+
+    setTitle('');
+    setContent('');
+  };
+
   return (
-    <form className="add-note">
+    <form onSubmit={formSubmitHandler} className="add-note">
       <label>Title:</label>
       <input
         type="text"
         className="add-note__title"
         placeholder="Some title..."
+        onChange={titleHandler}
+        value={title}
       />
       <label>Content:</label>
       <textarea
         className="add-note__content"
         placeholder="Write your note here..."
+        onChange={contentHandler}
+        value={content}
       ></textarea>
       <div className="add-note__btns">
         <button
