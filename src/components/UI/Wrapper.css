@@ -1,4 +1,4 @@
-.container {
+.wrapper {
   width: min(100% - 4rem, 675px);
   margin-inline: auto;
 }
