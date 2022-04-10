@@ -7,16 +7,12 @@ import NewNoteForm from './NewNoteForm';
 const NewNote = () => {
   const [isAddingNote, setIsAddingNote] = useState(false);
 
-  const btnHandler = () => {
-    setIsAddingNote(true);
-  };
-
-  const cancelFormHandler = () => {
-    setIsAddingNote(false);
+  const btnHandler = function () {
+    setIsAddingNote(this);
   };
 
   let jsxContent = (
-    <button onClick={btnHandler} className="btn btn--add">
+    <button onClick={btnHandler.bind(true)} className="btn btn--add">
       <svg
         width="30"
         height="30"
@@ -36,7 +32,7 @@ const NewNote = () => {
   if (isAddingNote) {
     jsxContent = (
       <Wrapper>
-        <NewNoteForm onCancelForm={cancelFormHandler} />
+        <NewNoteForm onCancelForm={btnHandler.bind(false)} />
       </Wrapper>
     );
   }
