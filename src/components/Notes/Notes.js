@@ -1,13 +1,24 @@
 import './Notes.css';
 import Wrapper from '../UI/Wrapper';
 import NoNotes from './NoNotes';
+import NotesFilter from './NotesFilter';
+import AddedNotes from './AddedNotes';
 
-const Notes = () => {
+const Notes = (props) => {
+  let jsxContent = <NoNotes />;
+
+  if (props.data.length !== 0) {
+    jsxContent = (
+      <div>
+        <NotesFilter />
+        <AddedNotes />
+      </div>
+    );
+  }
+
   return (
     <div className="notes">
-      <Wrapper>
-        <NoNotes />
-      </Wrapper>
+      <Wrapper>{jsxContent}</Wrapper>
     </div>
   );
 };
