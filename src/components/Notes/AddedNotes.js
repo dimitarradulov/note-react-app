@@ -6,9 +6,12 @@ const AddedNotes = (props) => {
       <ul className="added-notes__notes">
         {props.data.map((noteData) => (
           <SingleNote
+            key={noteData.id}
+            id={noteData.id}
             title={noteData.title}
             content={noteData.content}
             date={noteData.date}
+            onDelete={props.onDelete}
           />
         ))}
       </ul>
