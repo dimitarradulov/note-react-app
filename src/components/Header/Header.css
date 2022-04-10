@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.logo {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: clamp(3.6rem, 5vw, 4.6rem);
+  color: inherit;
+  letter-spacing: 0.03em;
+}
+
+.logo__colored {
+  color: #42619f;
+}
