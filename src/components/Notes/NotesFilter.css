@@ -17,7 +17,7 @@
 }
 
 .dropdown__content {
-  /* display: none; */
+  display: none;
   position: absolute;
   background-color: #fbffff;
   width: 12rem;
