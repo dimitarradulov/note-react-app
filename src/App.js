@@ -1,5 +1,7 @@
-function App() {
-  return <h1>Hello React</h1>;
-}
+import Header from './components/UI/Header';
+
+const App = () => {
+  return <Header />;
+};
 
 export default App;
