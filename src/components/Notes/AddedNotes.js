@@ -1,4 +1,3 @@
-import './AddedNotes.css';
 import SingleNote from './SingleNote';
 
 const AddedNotes = (props) => {
