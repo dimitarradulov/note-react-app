@@ -4,7 +4,7 @@ const NotesFilter = () => {
   return (
     <div className="dropdown">
       <button className="btn btn--filter">
-        <span>Filter By</span>
+        <span>Sort By</span>
         <svg
           width="20"
           height="20"
