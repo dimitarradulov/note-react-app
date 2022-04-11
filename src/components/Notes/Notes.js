@@ -11,7 +11,11 @@ const Notes = (props) => {
     jsxContent = (
       <div>
         <NotesFilter />
-        <AddedNotes onDelete={props.onDelete} data={props.data} />
+        <AddedNotes
+          onDelete={props.onDelete}
+          onViewDetails={props.onViewDetails}
+          data={props.data}
+        />
       </div>
     );
   }

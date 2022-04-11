@@ -10,13 +10,18 @@ const SingleNote = (props) => {
     props.onDelete(id);
   };
 
+  const viewDetailsHandler = () => {
+    const id = props.id;
+    props.onViewDetails(id);
+  };
+
   return (
     <div className="added-notes__note">
       <h3 className="added-notes__title">{props.title}</h3>
       <p className="added-notes__content">{props.content}</p>
       <div className="note-details">
         <p className="added-notes__date">{formatedDate}</p>
-        <button className="added-notes__details">
+        <button onClick={viewDetailsHandler} className="added-notes__details">
           View Details
           <svg
             width="10"

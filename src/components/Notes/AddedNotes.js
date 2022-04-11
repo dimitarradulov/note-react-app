@@ -12,6 +12,7 @@ const AddedNotes = (props) => {
             content={noteData.content}
             date={noteData.date}
             onDelete={props.onDelete}
+            onViewDetails={props.onViewDetails}
           />
         ))}
       </ul>

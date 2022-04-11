@@ -5,6 +5,7 @@ import Moment from 'react-moment';
 import Header from './components/Header/Header';
 import NewNote from './components/NewNote/NewNote';
 import Notes from './components/Notes/Notes';
+import Modal from './components/Modal/Modal';
 
 const DUMMY_NOTES = [
   {
@@ -24,6 +25,10 @@ const DUMMY_NOTES = [
 
 const App = () => {
   const [notes, setNotes] = useState(DUMMY_NOTES);
+  const [isViewingDetails, setIsViewingDetails] = useState({
+    note: {},
+    viewing: false,
+  });
 
   const saveNoteData = (data) => {
     setNotes((prevNotes) => {
@@ -37,11 +42,28 @@ const App = () => {
     });
   };
 
+  const viewDetailsHandler = (targetNoteDataId) => {
+    const targetNote = notes.find((note) => note.id === targetNoteDataId);
+
+    setIsViewingDetails({ note: targetNote, viewing: true });
+  };
+
+  const closeModalHandler = () => {
+    setIsViewingDetails({ note: {}, viewing: false });
+  };
+
   return (
     <div>
       <Header />
       <NewNote onSaveNoteData={saveNoteData} />
-      <Notes data={notes} onDelete={deleteNoteData} />
+      <Notes
+        data={notes}
+        onDelete={deleteNoteData}
+        onViewDetails={viewDetailsHandler}
+      />
+      {isViewingDetails.viewing && (
+        <Modal onCloseModal={closeModalHandler} note={isViewingDetails.note} />
+      )}
     </div>
   );
 };
