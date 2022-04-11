@@ -37,3 +37,7 @@ body {
 .btn:hover {
   background-color: #385287;
 }
+
+.hidden {
+  display: none;
+}
