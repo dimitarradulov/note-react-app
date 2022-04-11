@@ -18,6 +18,9 @@ const NewNoteForm = (props) => {
   const formSubmitHandler = (e) => {
     e.preventDefault();
 
+    if (!title.trim()) return;
+    if (!content.trim()) return;
+
     const noteData = {
       id: uniqid(),
       title,
