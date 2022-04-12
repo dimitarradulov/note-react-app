@@ -1,3 +1,9 @@
 .notes {
   margin-top: 3rem;
 }
+
+@media screen and (min-width: 800px) {
+  .notes {
+    margin-top: 6rem;
+  }
+}
