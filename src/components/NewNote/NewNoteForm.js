@@ -28,6 +28,8 @@ const NewNoteForm = (props) => {
       date: new Date(),
     };
 
+    localStorage.setItem(noteData.id, JSON.stringify(noteData));
+
     props.onSaveNoteData(noteData);
 
     setTitle('');
