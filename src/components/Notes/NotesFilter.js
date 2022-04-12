@@ -1,20 +1,21 @@
-import { useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
+
+import useListenForOutsideClicks from '../util/useListenForOutsideClicks';
 
 import './NotesFilter.css';
 
 const NotesFilter = (props) => {
+  const wrapperRef = useRef(null);
   const [isSorting, setIsSorting] = useState(false);
+
+  useListenForOutsideClicks(wrapperRef, setIsSorting);
 
   const dropdownContentClasses = `dropdown__content ${
     !isSorting ? 'hidden' : ''
   }`;
 
-  const sortHandler = () => {
-    setIsSorting((prevState) => {
-      if (prevState) return false;
-
-      return true;
-    });
+  const toggle = () => {
+    setIsSorting(!isSorting);
   };
 
   const sortElementsHandler = (fn) => {
@@ -24,8 +25,8 @@ const NotesFilter = (props) => {
   };
 
   return (
-    <div className="dropdown">
-      <button onClick={sortHandler} className="btn btn--filter">
+    <div ref={wrapperRef} className="dropdown">
+      <button onClick={toggle} className="btn btn--filter">
         <span>Sort By</span>
         <svg
           width="20"
