@@ -10,7 +10,10 @@ const Notes = (props) => {
   if (props.data.length !== 0) {
     jsxContent = (
       <div>
-        <NotesFilter />
+        <NotesFilter
+          onTitleSort={props.onTitleSort}
+          onDateSort={props.onDateSort}
+        />
         <AddedNotes
           onDelete={props.onDelete}
           onViewDetails={props.onViewDetails}

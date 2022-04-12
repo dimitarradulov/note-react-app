@@ -52,6 +52,18 @@ const App = () => {
     setIsViewingDetails({ note: {}, viewing: false });
   };
 
+  const titleSortHandler = () => {
+    setNotes((prevNotes) => {
+      return [...prevNotes].sort((a, b) => a.title.localeCompare(b.title));
+    });
+  };
+
+  const dateSortHandler = () => {
+    setNotes((prevNotes) => {
+      return [...prevNotes].sort((a, b) => a.date - b.date);
+    });
+  };
+
   return (
     <div>
       <Header />
@@ -60,10 +72,13 @@ const App = () => {
         data={notes}
         onDelete={deleteNoteData}
         onViewDetails={viewDetailsHandler}
+        onTitleSort={titleSortHandler}
+        onDateSort={dateSortHandler}
       />
       <ReactModal
         isOpen={isViewingDetails.viewing}
         onRequestClose={closeModalHandler}
+        ariaHideApp={false}
         style={{
           overlay: {
             backgroundColor: 'rgba(0, 0, 0, 0.65)',

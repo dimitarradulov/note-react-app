@@ -1,9 +1,31 @@
+import { useState } from 'react';
+
 import './NotesFilter.css';
 
-const NotesFilter = () => {
+const NotesFilter = (props) => {
+  const [isSorting, setIsSorting] = useState(false);
+
+  const dropdownContentClasses = `dropdown__content ${
+    !isSorting ? 'hidden' : ''
+  }`;
+
+  const sortHandler = () => {
+    setIsSorting((prevState) => {
+      if (prevState) return false;
+
+      return true;
+    });
+  };
+
+  const sortElementsHandler = (fn) => {
+    fn();
+
+    setIsSorting(false);
+  };
+
   return (
     <div className="dropdown">
-      <button className="btn btn--filter">
+      <button onClick={sortHandler} className="btn btn--filter">
         <span>Sort By</span>
         <svg
           width="20"
@@ -20,9 +42,11 @@ const NotesFilter = () => {
           />
         </svg>
       </button>
-      <ul className="dropdown__content hidden">
-        <li>Title</li>
-        <li>Date</li>
+      <ul className={dropdownContentClasses}>
+        <li onClick={sortElementsHandler.bind(this, props.onTitleSort)}>
+          Title
+        </li>
+        <li onClick={sortElementsHandler.bind(this, props.onDateSort)}>Date</li>
       </ul>
     </div>
   );
