@@ -22,7 +22,7 @@ You can check out the app here:
 (WARNING: Opens in the same tab)
 
 ## ✅ Setup 
-Tp run this project install it locally using npm:
+To run this project install it locally using npm:
 ```
 $ git clone https://github.com/dimitarradulov/note-react-app.git
 $ cd note-react-app
